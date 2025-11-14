@@ -5,15 +5,15 @@ using namespace std;
 
 struct Time {
     int hour, minute;
-    double second;
+    int second;
 
-    Time(double secs = 0);
+    Time(int secs = 0);
 
-    string time_string() const;
+    string to_string() const;
 };
 
 
-Time::Time(double secs=0)
+Time::Time(int secs)
 {
     hour = int(secs / 3600.0);
     secs -= hour * 3600.0;
@@ -22,16 +22,21 @@ Time::Time(double secs=0)
     second = secs;
 }
 
-string Time::time_string() const
+string Time::to_string() const
 {
     string timestring;
     if (minute < 10 && second < 10){
-        timestring = to_string(hour)+":"+"0"+to_string(minute)+":"+"0"+to_string(second);}
+        timestring = std::to_string(hour)+":"+"0"+std::to_string(minute)+":"+"0"+std::to_string(second);}
     else if (minute > 10 && second > 10){
-        timestring = to_string(hour)+":"+to_string(minute)+":"+to_string(second);}
+        timestring = std::to_string(hour)+":"+std::to_string(minute)+":"+std::to_string(second);}
+    else if (minute < 10 && second > 10){
+        timestring = std::to_string(hour)+":"+"0"+std::to_string(minute)+":"+std::to_string(second);}
+    else if (minute > 10 && second < 10){
+        timestring = std::to_string(hour)+":"+std::to_string(minute)+":"+"0"+std::to_string(second);}
     return(timestring);
 }
-
+// the member being called to_string is problematic because it is a built-in
+// function, requiring std to be called in the above function.
 TEST_CASE("Test can create and render Times") {
     Time t1;
     CHECK(t1.to_string() == "0:00:00");
