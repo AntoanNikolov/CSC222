@@ -6,6 +6,10 @@ using namespace std;
 struct Time {
     int hour, minute;
     double second;
+
+    Time(double secs = 0);
+
+    string time_string() const;
 };
 
 
@@ -18,14 +22,14 @@ Time::Time(double secs=0)
     second = secs;
 }
 
-string Time::to_string()
+string Time::time_string() const
 {
     string timestring;
     if (minute < 10 && second < 10){
-        timestring = hour+":"+"0"+minute+":"+"0"+second}
-    else if (minute > 10 && second > 10{
-        timestring = hour+":"+minute+":"+second}
-   return(timestring);
+        timestring = to_string(hour)+":"+"0"+to_string(minute)+":"+"0"+to_string(second);}
+    else if (minute > 10 && second > 10){
+        timestring = to_string(hour)+":"+to_string(minute)+":"+to_string(second);}
+    return(timestring);
 }
 
 TEST_CASE("Test can create and render Times") {
