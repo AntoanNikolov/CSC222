@@ -1,12 +1,13 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <doctest.h>
+#include <string>
 using namespace std;
 
 struct Time {
     int hour, minute;
     double second;
-
 };
+
 
 Time::Time(double secs=0)
 {
@@ -17,10 +18,14 @@ Time::Time(double secs=0)
     second = secs;
 }
 
-void Time::to_string()
+string Time::to_string()
 {
-    timestring = hour+":"+minute+":"+second;
-    return(timestring);
+    string timestring;
+    if (minute < 10 && second < 10){
+        timestring = hour+":"+"0"+minute+":"+"0"+second}
+    else if (minute > 10 && second > 10{
+        timestring = hour+":"+minute+":"+second}
+   return(timestring);
 }
 
 TEST_CASE("Test can create and render Times") {
