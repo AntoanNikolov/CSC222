@@ -1,5 +1,4 @@
-#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include <doctest.h>
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -53,7 +52,13 @@ Time Time::operator+(const Time& othertime) {
 
 }
 
+ostream& operator<<(ostream& out, Time time) {
+    out << time.to_string();
+    return out;
+}
+
 int main() {
+    int a = 5;
     Time t(3600 * 4 + 60 * 11 + 22);
     cout << "Time t is: " << t << endl;
     // should print 4:11:22
