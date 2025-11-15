@@ -9,8 +9,11 @@ struct Time {
 
     Time(int secs = 0);
     Time(int hrs, int mins, int secs=0);
-
+    
     string to_string() const;
+    Time operator+(const Time&);
+    
+
 };
 
 Time::Time(int hrs, int mins, int secs)
@@ -44,6 +47,12 @@ string Time::to_string() const
 }
 // the member being called to_string is problematic because it is a built-in
 // function, requiring std to be called in the above function.
+
+Time Time::operator+(const Time& othertime) {
+    return Time(hour + othertime.hour, minute + othertime.minute, second + othertime.second);
+
+}
+
 TEST_CASE("Test can create and render Times") {
     Time t1;
     CHECK(t1.to_string() == "0:00:00");
@@ -60,3 +69,10 @@ TEST_CASE("Test hour-minute and hour-minute-second constructors") {
     Time t2(7, 2, 11);
     CHECK(t2.to_string() == "7:02:11");
 }
+TEST_CASE("Test can add two Times with + operator") {
+    Time t1(25, 40);
+    Time t2(17, 2, 42);
+    Time t3 = t1 + t2;
+    CHECK(t3.to_string() == "42:42:42");
+}
+
