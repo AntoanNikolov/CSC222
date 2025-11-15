@@ -55,7 +55,7 @@ Time Time::operator+(const Time& othertime) {
 ostream& operator<<(ostream& out, Time time) {
     out << time.to_string();
     return out;
-}
+} 
 
 int main() {
     int a = 5;
