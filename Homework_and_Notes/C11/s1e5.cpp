@@ -12,7 +12,8 @@ struct Point {
     Point(double a, double b);
     
     Point operator+(const Point&);
-
+    
+    string to_string() const;
 };
 
 Point::Point(){
@@ -23,6 +24,12 @@ Point::Point(){
 Point::Point(double a, double b){
     x=a;
     y = b;
+}
+
+string Point::to_string() const{
+    string pointstring = "(" + std::to_string(x) + ", " + std::to_string(y) + ")";
+    return pointstring;
+
 }
 
 Point Point::operator+(const Point& otherpoint) {
@@ -48,8 +55,8 @@ TEST_CASE("Test can add Points") {
     CHECK(p3.y == 6.0);
 }
 
-// TEST_CASE("Test can render Points as strings") {
-//    Point p(8, 7);
-//    string expected = "(8.000000, 7.000000)";
-//    CHECK(p.to_string() == expected);
-// }
+TEST_CASE("Test can render Points as strings") {
+    Point p(8, 7);
+    string expected = "(8.000000, 7.000000)";
+    CHECK(p.to_string() == expected);
+}
