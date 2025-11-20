@@ -31,7 +31,7 @@ TEST_CASE("Test comparison of Cards") {
     CHECK((c2 == c3) == true);
 }
 
-TEST_CASE("Test non-equal comparisons of Cards") {
+TEST_CASE("Test other comparisons of Cards") {
 
     Card c1(1,10);
     Card c2(3,11);
@@ -43,6 +43,7 @@ TEST_CASE("Test non-equal comparisons of Cards") {
     CHECK((c2>c1) == true); // flipped above
     CHECK((c3>c6) == true); // higher suit, lower rank, first card value is most important so should be true
     CHECK((c3>c2) == false); // lower suit, higher rank, first card value is most important so should be false
+    CHECK((c4>=c5) == true);
 
 
 }
