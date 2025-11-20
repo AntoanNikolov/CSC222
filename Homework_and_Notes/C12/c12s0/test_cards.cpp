@@ -53,3 +53,9 @@ TEST_CASE("Test comparisons with Aces") { // aces must be higher than kings
     CHECK((c1 > c2) == true);
     CHECK((c1 > c3) == true);
 }
+
+TEST_CASE("Test deck building") {
+    vector<Card> deck = build_deck();
+    CHECK(deck.empty() == false);
+    CHECK(deck.size() == 52);
+}
