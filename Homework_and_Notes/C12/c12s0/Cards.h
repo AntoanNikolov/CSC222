@@ -10,4 +10,5 @@ struct Card
     bool operator==(const Card& c2) const;
     bool operator>(const Card& c2) const;
     bool operator>=(const Card& c2) const;
+    bool operator!=(const Card& c2) const;
 };

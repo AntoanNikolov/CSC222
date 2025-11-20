@@ -43,7 +43,8 @@ TEST_CASE("Test other comparisons of Cards") {
     CHECK((c2>c1) == true); // flipped above
     CHECK((c3>c6) == true); // higher suit, lower rank, first card value is most important so should be true
     CHECK((c3>c2) == false); // lower suit, higher rank, first card value is most important so should be false
-    CHECK((c4>=c5) == true);
+    CHECK((c4>=c5) == true); // checking >=
+    CHECK((c1!=c2) == true); // checking !=
 
 
 }

@@ -27,6 +27,11 @@ bool Card::operator==(const Card& c2) const
     return (rank == c2.rank && suit == c2.suit);
 }
 
+bool Card::operator!=(const Card& c2) const
+{
+    return (rank != c2.rank && suit != c2.suit);
+}
+
 bool Card::operator>(const Card& c2) const
 {
     // first check the suits
