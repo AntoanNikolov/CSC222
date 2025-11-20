@@ -30,3 +30,14 @@ TEST_CASE("Test comparison of Cards") {
     CHECK((c1 == c2) == false); // had to modify test to fix an error
     CHECK((c2 == c3) == true);
 }
+
+TEST_CASE("Test non-equal comparisons of Cards") {
+
+    Card c1(1,10);
+    Card c2(3,11);
+    Card c3(2,12);
+    Card c4(9, 10);
+    Card c5(9,10);
+
+
+}
