@@ -22,3 +22,11 @@ TEST_CASE("Test can render Cards") {
     Card c5;
     CHECK(c5.to_string() == "Joker");
 }
+
+TEST_CASE("Test comparison of Cards") {
+    Card c1(2, 9);
+    Card c2(1, 10);
+    Card c3(1, 10);
+    CHECK((c1 == c2) == false); // had to modify test to fix an error
+    CHECK((c2 == c3) == true);
+}

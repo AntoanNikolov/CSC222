@@ -7,4 +7,5 @@ struct Card
     Card();
     Card(int s, int r);
     std::string to_string();
+    bool operator==(const Card& c2) const;
 };
