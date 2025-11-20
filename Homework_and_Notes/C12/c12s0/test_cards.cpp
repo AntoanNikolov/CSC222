@@ -45,6 +45,11 @@ TEST_CASE("Test other comparisons of Cards") {
     CHECK((c3>c2) == false); // lower suit, higher rank, first card value is most important so should be false
     CHECK((c4>=c5) == true); // checking >=
     CHECK((c1!=c2) == true); // checking !=
-
-
+}
+TEST_CASE("Test comparisons with Aces") { // aces must be higher than kings
+    Card c1(4, 1);
+    Card c2(4, 2);
+    Card c3(4, 13);
+    CHECK((c1 > c2) == true);
+    CHECK((c1 > c3) == true);
 }
