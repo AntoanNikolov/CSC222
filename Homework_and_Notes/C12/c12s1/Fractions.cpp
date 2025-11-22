@@ -32,6 +32,12 @@ Fraction::Fraction(std::string a) {
 }
 
 std::string Fraction::to_string() {
-    std::string output = std::to_string(numerator) + "/" + std::to_string(denominator);
-    return output;
+    if (denominator != 1) {
+        std::string output = std::to_string(numerator) + "/" + std::to_string(denominator);
+        return output;
+    }
+    else {
+        std::string output = std::to_string(numerator);
+        return output;
+    }
 }
