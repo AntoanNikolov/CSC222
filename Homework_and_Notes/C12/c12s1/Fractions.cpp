@@ -15,6 +15,10 @@ Fraction::Fraction() {
     numerator = 0;
 }
 
+Fraction::Fraction(int n) {
+    numerator = n;
+    denominator = 1;
+}
 
 Fraction::Fraction(int n,int d) {
     int divisor = gcd(n,d);
