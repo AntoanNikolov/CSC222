@@ -52,6 +52,9 @@ std::string Fraction::to_string() {
     }
 }
 
+// having everything be a double to begin with and only converting to ints in to_string would have been
+// more optimized but oh well
+
 bool Fraction::operator>(const Fraction& f2) const
 {
     double val1 = static_cast<double>(numerator) / denominator;
@@ -87,4 +90,18 @@ bool Fraction::operator<=(const Fraction& f2) const
     double val1 = static_cast<double>(numerator) / denominator;
     double val2 = static_cast<double>(f2.numerator) / f2.denominator;
     return (val1 <= val2);
+}
+
+Fraction Fraction::operator+(const Fraction& f2) {
+    if (denominator == f2.denominator) {
+        int newnum = numerator + f2.numerator;
+        int newden = denominator;
+        return Fraction(newnum, newden);
+    }
+    // i need to find the least common factor between the two
+    // denominators and multiply the smallest one by it
+    else { 
+
+
+    }
 }
