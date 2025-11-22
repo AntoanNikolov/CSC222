@@ -24,3 +24,12 @@ std::string Fraction::to_string() {
     std::string output = std::to_string(numerator) + "/" + std::to_string(denominator);
     return output;
 }
+
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+        }
+    return a;
+}

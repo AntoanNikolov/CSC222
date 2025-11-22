@@ -9,3 +9,4 @@ struct Fraction
     std::string to_string();
 
 };
+int gcd(int a, int b); 
