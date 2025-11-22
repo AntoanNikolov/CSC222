@@ -98,8 +98,7 @@ Fraction Fraction::operator+(const Fraction& f2) {
         int newden = denominator;
         return Fraction(newnum, newden);
     }
-    // i need to find the least common factor between the two
-    // denominators and multiply the smallest one by it
+    // i need to find the least common factor between the two denominators
     else { 
 
 
