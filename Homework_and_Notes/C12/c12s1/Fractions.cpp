@@ -51,3 +51,40 @@ std::string Fraction::to_string() {
         return output;
     }
 }
+
+bool Fraction::operator>(const Fraction& f2) const
+{
+    double val1 = static_cast<double>(numerator) / denominator;
+    double val2 = static_cast<double>(f2.numerator) / f2.denominator;
+    return (val1 > val2);
+}
+bool Fraction::operator==(const Fraction& f2) const
+{
+    double val1 = static_cast<double>(numerator) / denominator;
+    double val2 = static_cast<double>(f2.numerator) / f2.denominator;
+    return (val1 == val2);
+}
+bool Fraction::operator<(const Fraction& f2) const
+{
+    double val1 = static_cast<double>(numerator) / denominator;
+    double val2 = static_cast<double>(f2.numerator) / f2.denominator;
+    return (val1 < val2);
+}
+bool Fraction::operator!=(const Fraction& f2) const
+{
+    double val1 = static_cast<double>(numerator) / denominator;
+    double val2 = static_cast<double>(f2.numerator) / f2.denominator;
+    return (val1 != val2);
+}
+bool Fraction::operator>=(const Fraction& f2) const
+{
+    double val1 = static_cast<double>(numerator) / denominator;
+    double val2 = static_cast<double>(f2.numerator) / f2.denominator;
+    return (val1 >= val2);
+}
+bool Fraction::operator<=(const Fraction& f2) const
+{
+    double val1 = static_cast<double>(numerator) / denominator;
+    double val2 = static_cast<double>(f2.numerator) / f2.denominator;
+    return (val1 <= val2);
+}
