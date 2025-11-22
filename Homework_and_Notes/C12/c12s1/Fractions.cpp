@@ -19,3 +19,8 @@ Fraction::Fraction(std::string a) {
     numerator = std::stoi(a.substr(0, slash)); // stoi is more intuitive
     denominator = std::stoi(a.substr(slash + 1));
 }
+
+std::string Fraction::to_string() {
+    std::string output = std::to_string(numerator) + "/" + std::to_string(denominator);
+    return output;
+}

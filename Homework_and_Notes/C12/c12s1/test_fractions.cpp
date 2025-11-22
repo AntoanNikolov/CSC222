@@ -22,3 +22,9 @@ TEST_CASE("Test third Fraction constructor using a string") {
     CHECK(f2.numerator == 37);
     CHECK(f2.denominator == 149);
 }
+TEST_CASE("Test can render a Fraction as a string") {
+    Fraction f1(17, 25);
+    CHECK(f1.to_string() == "17/25");
+    Fraction f2(-7, 11);
+    CHECK(f2.to_string() == "-7/11");
+}
