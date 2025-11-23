@@ -92,6 +92,11 @@ bool Fraction::operator<=(const Fraction& f2) const
     return (val1 <= val2);
 }
 
+// lcm is needed for below functions
+int lcm(int a, int b) { 
+    return a * b / gcd(a, b);
+}
+
 Fraction Fraction::operator+(const Fraction& f2) {
     if (denominator == f2.denominator) {
         int newnum = numerator + f2.numerator;
@@ -100,7 +105,37 @@ Fraction Fraction::operator+(const Fraction& f2) {
     }
     // i need to find the least common factor between the two denominators
     else { 
-
-
+        int newden = lcm(denominator, f2.denominator);
+        int factor1 = newden / denominator; // to multiply first numerator accordingly (accounting for denominator change)
+        int factor2 = newden / f2.denominator; // same for second numerator
+        int newnum = numerator * factor1 + f2.numerator * factor2;
+        return Fraction(newnum, newden);
     }
+}
+Fraction Fraction::operator-(const Fraction& f2) {
+    if (denominator == f2.denominator) {
+        int newnum = numerator - f2.numerator;
+        int newden = denominator;
+        return Fraction(newnum, newden);
+    }
+    // i need to find the least common factor between the two denominators
+    else { 
+        int newden = lcm(denominator, f2.denominator);
+        int factor1 = newden / denominator; // to multiply first numerator accordingly (accounting for denominator change)
+        int factor2 = newden / f2.denominator; // same for second numerator
+        int newnum = numerator * factor1 - f2.numerator * factor2;
+        return Fraction(newnum, newden);
+    }
+}
+
+Fraction Fraction::operator*(const Fraction& f2) {
+    int newnum = numerator * f2.numerator;
+    int newden = denominator *f2.denominator;
+    return Fraction(newnum, newden);
+}
+// reciprocals for division
+Fraction Fraction::operator/(const Fraction& f2) {
+    int newnum = numerator * f2.denominator;
+    int newden = denominator *f2.numerator;
+    return Fraction(newnum, newden);
 }

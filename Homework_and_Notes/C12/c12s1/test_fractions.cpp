@@ -75,7 +75,8 @@ TEST_CASE("Test comparison operators for Fractions") {
 TEST_CASE("Additon, subtraction, multiplication, division") {
     Fraction f1(1, 4);
     Fraction f2(3, 2);
-    CHECK((f1+f2)==(7/4));
+    CHECK((f1+f2)==(Fraction(7,4)));
+    CHECK((f2-f1)==(Fraction(5,4))); 
     //Fraction f3(1, 4);
     //Fraction f4(3, 5);
 
