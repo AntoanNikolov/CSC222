@@ -99,3 +99,53 @@ clean:
 - Add -i to make to have this happen for every command.
 ### Recursive use of make
 - To recursively call a makefile, use the special $(MAKE) instead of make because it will pass the make flags for you and won't itself be affected by them.
+### Export, environments, recursive make  
+- When Make starts, it automatically creates Make variables out of all the environment variables that are set when it's executed.
+- The export directive takes a variable and sets it the environment for all shell commands in all the recipes:  
+``` shell_env_var=Shell env var, created inside of Make
+export shell_env_var
+all:
+	echo $(shell_env_var)
+	echo $$shell_env_var
+```  
+### Conditionals  
+- Conditional if/else
+```
+foo = ok
+
+all:
+ifeq ($(foo), ok)
+	echo "foo equals ok"
+else
+	echo "nope"
+endif
+```  
+- Check if a variable is empty
+```
+nullstring =
+foo = $(nullstring) # end of line; there is a space here
+
+all:
+ifeq ($(strip $(foo)),)
+	echo "foo is empty after being stripped"
+endif
+ifeq ($(nullstring),)
+	echo "nullstring doesn't even have spaces"
+endif
+```  
+- Check if a variable is defined
+```
+bar =
+foo = $(bar)
+
+all:
+ifdef foo
+	echo "foo is defined"
+endif
+ifndef bar
+	echo "but bar is not"
+endif
+```
+### Functions  
+- functions are mainly used for processing text
+- Call functions with ```$(fn, arguments)``` or ```${fn, arguments}```.
