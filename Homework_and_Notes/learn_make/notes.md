@@ -37,3 +37,56 @@ three:
 clean:
 	rm -f one two three
 ```
+### Wildcards  
+#### * Wildcard
+- ```*``` searches for files. Example: *.cpp will find all cpp files.  
+- Danger: ```*``` may not be directly used in a variable definitions  
+- Danger: When ```*``` matches no files, it is left as it is (unless run in the wildcard function)  
+```
+thing_wrong := *.o # Don't do this! '*' will not get expanded
+thing_right := $(wildcard *.o)
+
+all: one two three four
+
+# Fails, because $(thing_wrong) is the string "*.o"
+one: $(thing_wrong)
+
+# Stays as *.o if there are no files that match this pattern :(
+two: *.o 
+
+# Works as you would expect! In this case, it does nothing.
+three: $(thing_right)
+
+# Same as rule three
+four: $(wildcard *.o)
+```  
+#### % Wildcard  
+- When used in "matching" mode, it matches one or more characters in a string. This match is called the stem.
+- When used in "replacing" mode, it takes the stem that was matched and replaces that in a string.
+- ```%``` is most often used in rule definitions and in some specific functions.
+### Automatic Variables
+```
+hey: one two
+	# Outputs "hey", since this is the target name
+	echo $@
+
+	# Outputs all prerequisites newer than the target
+	echo $?
+
+	# Outputs all prerequisites
+	echo $^
+
+	# Outputs the first prerequisite
+	echo $<
+
+	touch hey
+
+one:
+	touch one
+
+two:
+	touch two
+
+clean:
+	rm -f hey one two
+```
