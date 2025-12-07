@@ -90,3 +90,12 @@ two:
 clean:
 	rm -f hey one two
 ```
+### Default bash  
+- The default shell is /bin/sh. You can change this by changing the variable SHELL:  
+'''SHELL=/bin/bash'''  
+### Error handling
+- Add -k when running make to continue running even in the face of errors. Helpful if you want to see all the errors of Make at once.
+- Add a - before a command to suppress the error
+- Add -i to make to have this happen for every command.
+### Recursive use of make
+- To recursively call a makefile, use the special $(MAKE) instead of make because it will pass the make flags for you and won't itself be affected by them.
