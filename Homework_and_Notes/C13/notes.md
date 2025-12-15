@@ -65,3 +65,30 @@ Deck Deck::subdeck(int l, int h) const
 }
 ```  
 - merge sort works by sorting small portions and them sorting the portions together
+#### example of inheritance (like Python):  
+```
+struct WarCard : Card
+{
+    using Card::Card;
+
+    bool operator==(const WarCard& c2) const;
+    bool operator!=(const WarCard& c2) const;
+    bool operator>(const WarCard& c2) const;
+    bool operator>=(const WarCard& c2) const;
+    bool operator<(const WarCard& c2) const;
+    bool operator<=(const WarCard& c2) const;
+};
+```  
+The : Card following WarCard tells the compiler that the WarCard object is a derived object that inherits from its parent Card object. The using Card::Card line is a using-declaration that tells the compiler that WarCards inherit the constructors of its parent.  
+  
+- In a c++ queue, the element inserted first is the first one to be removed. Elements are added to the back (rear) and removed from the front (head).  
+```
+#include <queue>
+#include <iostream>
+
+int main() {
+    std::queue<int> q; // Declares a queue of integers
+    // ... operations ...
+    return 0;
+}
+```
