@@ -30,3 +30,13 @@ vector<Card> build_deck()
     return deck;
 }
 ```  
+Use a switch statement to convert to a string:  
+```
+switch(suit) {
+    case CLUBS: return "Clubs";
+    case DIAMONDS: return "Diamonds";
+    case HEARTS: return "Hearts";
+    case SPADES: return "Spades";
+    default: return "Not a valid suit";
+}
+```  
