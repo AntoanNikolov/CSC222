@@ -40,3 +40,15 @@ switch(suit) {
     default: return "Not a valid suit";
 }
 ```  
+### to summarize so far, each card has enums, deciding the suit and rnak, cards belong to a deck. Cards and Decks have their own member functions for construction. Decks have additional functions, like finding a specific card.  
+continuing...  
+- shuffling:
+```
+void Deck::shuffle()
+{
+    for (int i = 0; i < cards.size(); i++) {
+        int rand_card = random_between(0, cards.size() - 1);
+        swap_cards(i, rand_card);
+    }
+}
+```  
