@@ -52,3 +52,16 @@ void Deck::shuffle()
     }
 }
 ```  
+For hands of cards, we might want a function, subdeck, that takes a vector of cards and a range of indices, and returns a new vector of cards that contains the specified subset of the deck:
+```
+Deck Deck::subdeck(int l, int h) const
+{
+    Deck sub(h-l+1);
+
+    for (int i = 0; i < sub.cards.size(); i++) {
+        sub.cards[i] = cards[l+i];
+    }
+    return sub;
+}
+```  
+- merge sort works by sorting small portions and them sorting the portions together
