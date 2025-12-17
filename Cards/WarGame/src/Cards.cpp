@@ -123,6 +123,11 @@ Deck::Deck()
     }
 }
 
+int Deck::size() {
+    return cards.size();
+}
+
+
 int Deck::find(const Card& card) const
 {
     for (int i = 0; i < cards.size(); i++) {
@@ -227,3 +232,4 @@ Deck Deck::subdeck(int l, int h) const
     }
     return sub;
 }
+

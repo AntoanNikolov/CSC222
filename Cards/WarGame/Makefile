@@ -22,7 +22,10 @@ test_cards: build/test_cards
 test_decks: build/test_decks
 	./build/test_decks
 
-test: test_cards test_decks
+#test_war: build/test_war
+#	./build/test_war
+
+test: test_cards test_decks #test_war
 
 clean:
 	rm -rf build

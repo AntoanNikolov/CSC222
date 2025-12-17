@@ -48,6 +48,7 @@ struct Deck
     void sort();
 
     // member functions
+    int size();
     int find(const Card& card) const;
     Deck subdeck(int l, int h) const;
     Deck merge(const Deck& d) const;
