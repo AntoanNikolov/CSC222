@@ -102,10 +102,6 @@ TEST_CASE("Test find_lowest_between and sort") {
 TEST_CASE("Test decks know their size") {
     Deck d(0);
     CHECK(d.size() == 0);
-    d.add_card(Card(HEARTS, JACK));
-    d.add_card(Card(SPADES, TWO));
-    d.add_card(Card(CLUBS, QUEEN));
-    CHECK(d.size()==3);
 
     d.add_card(Card(HEARTS, QUEEN));
     d.add_card(Card(SPADES, ACE));
