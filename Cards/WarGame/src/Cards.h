@@ -28,7 +28,6 @@ struct Card
     bool operator<=(const Card& c2) const;
     bool operator!=(const Card& c2) const;
 
-    Card merge_sort();
 };
 
 void swap_cards(Card* c1, Card* c2);
