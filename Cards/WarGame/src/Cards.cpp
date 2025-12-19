@@ -238,6 +238,11 @@ bool WarCard::operator==(const WarCard& c2) const
     return (rank == c2.rank);
 }
 
+bool WarCard::operator!=(const WarCard& c2) const
+{
+    return (rank != c2.rank);
+}
+
 bool WarCard::operator>(const WarCard& c2) const
 {
     // Handle Jokers high

@@ -20,7 +20,7 @@ TEST_CASE("Test compare WarCards") {
     WarCard wc4;
     WarCard wc5(CLUBS, TEN);
     CHECK((wc1 == wc2) == true);
-    // CHECK((wc1 != wc2) == false);
+    CHECK((wc1 != wc2) == false);
     CHECK((wc3 > wc2) == true);
     CHECK((wc4 > wc3) == true);
     // CHECK((wc4 <= wc3) == false);
