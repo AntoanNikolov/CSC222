@@ -213,14 +213,14 @@ Deck Deck::merge(const Deck& d) const
 
 Deck Deck::merge_sort() const
 {
-    int mid = cards.size() / 2;
-    Deck lhalf = subdeck(0, mid);
-    Deck uhalf = subdeck(mid+1, cards.size()-1);
+    int mid = cards.size() / 2; // find middle
+    Deck lhalf = subdeck(0, mid); // create lower half
+    Deck uhalf = subdeck(mid, cards.size()-1); // create upper half
     
-    lhalf.sort();
-    uhalf.sort();
+    lhalf.sort(); // sort lower half
+    uhalf.sort(); // sort upper half
 
-    return lhalf.merge(uhalf);
+    return lhalf.merge(uhalf); // merge the two halves
 }
 
 Deck Deck::subdeck(int l, int h) const
@@ -232,4 +232,3 @@ Deck Deck::subdeck(int l, int h) const
     }
     return sub;
 }
-
