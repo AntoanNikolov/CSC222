@@ -57,3 +57,15 @@ struct Deck
     // void print() const;
     int find_lowest(int l, int h);
 };
+
+struct WarCard : Card
+{
+    using Card::Card;
+
+    bool operator==(const WarCard& c2) const;
+    bool operator!=(const WarCard& c2) const;
+    bool operator>(const WarCard& c2) const;
+    bool operator>=(const WarCard& c2) const;
+    bool operator<(const WarCard& c2) const;
+    bool operator<=(const WarCard& c2) const;
+};

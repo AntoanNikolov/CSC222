@@ -232,3 +232,18 @@ Deck Deck::subdeck(int l, int h) const
     }
     return sub;
 }
+
+bool WarCard::operator==(const WarCard& c2) const
+{
+    return (rank == c2.rank);
+}
+
+bool WarCard::operator>(const WarCard& c2) const
+{
+    // Handle Jokers high
+    if (rank == JOKER && c2.rank != JOKER) return true;
+    if (c2.rank == JOKER && rank != JOKER) return false;
+    // Handle rest of ranks
+    if (rank > c2.rank) return true;
+    return false;
+}

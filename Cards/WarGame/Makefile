@@ -11,6 +11,8 @@ build/test_cards: build/test_cards.o build/random.o build/Cards.o
 
 build/test_decks: build/test_decks.o build/random.o build/Cards.o 
 	$(CC) -o $@ $^ -std=$(STD) 
+build/test_war: build/test_war.o build/random.o build/Cards.o
+ 	$(CC) -o $@ $^ -std=$(STD)
 
 -include build/*.d
 
@@ -22,10 +24,10 @@ test_cards: build/test_cards
 test_decks: build/test_decks
 	./build/test_decks
 
-#test_war: build/test_war
-#	./build/test_war
+test_war: build/test_war
+	./build/test_war
 
-test: test_cards test_decks #test_war
+test: test_cards test_decks test_war
 
 clean:
 	rm -rf build
