@@ -69,3 +69,19 @@ struct WarCard : Card
     bool operator<(const WarCard& c2) const;
     bool operator<=(const WarCard& c2) const;
 };
+struct Pile
+{
+    queue<WarCard> cards;
+
+    // constructors
+    Pile();
+    Pile(const Deck& d);
+
+    // function
+    int size();
+
+    // modifiers
+    void add_card(const WarCard& c);
+    WarCard remove_card();
+    void move_cards(Pile& p);
+};

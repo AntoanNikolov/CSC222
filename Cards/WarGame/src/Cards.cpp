@@ -282,3 +282,35 @@ bool WarCard::operator>=(const WarCard& c2) const
     if (rank >= c2.rank) return true;
     return false;
 }
+
+Pile::Pile() {}
+
+Pile::Pile(const Deck& d) {
+    for (auto c : d.cards) {
+        cards.push(WarCard(c.suit, c.rank));
+    }
+}
+
+int Pile::size()
+{
+    return cards.size();
+}
+
+void Pile::add_card(const WarCard& c)
+{
+    cards.push(c);
+}
+
+WarCard Pile::remove_card()
+{
+    WarCard c = cards.front();
+    cards.pop();
+    return c;
+}
+
+void Pile::move_cards(Pile& p)
+{
+    while (p.size()) {
+        add_card(p.remove_card());
+    }
+}

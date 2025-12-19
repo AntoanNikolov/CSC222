@@ -27,3 +27,46 @@ TEST_CASE("Test compare WarCards") {
     CHECK((wc2 >= wc4) == false);
     CHECK((wc2 < wc3) == true);
 }
+
+TEST_CASE("Test create empty pile") {
+    Pile p;
+    CHECK(p.size() == 0);
+}
+
+TEST_CASE("Test add and remove cards from pile") {
+    Pile p;
+    p.add_card(WarCard(HEARTS, QUEEN));
+    CHECK(p.size() == 1);
+    p.add_card(WarCard(HEARTS, TEN));
+    p.add_card(WarCard(HEARTS, TWO));
+    CHECK(p.size() == 3);
+    WarCard c = p.remove_card();
+    CHECK(p.size() == 2);
+    // Check FIFO behavior for piles (removed card is Queen of Hearts)
+    CHECK(c.to_string() == "Queen of Hearts");
+}
+
+TEST_CASE("Test create piles from subdeck") {
+    Deck d;
+    Card c;
+    Card c2;
+    d.add_card(c);
+    d.add_card(c2);
+    CHECK(d.cards.size() == 54);
+    d.shuffle();
+    Pile p1(d.subdeck(0, 26));
+    Pile p2(d.subdeck(27, 53));
+    CHECK(p1.size() == 27);
+    CHECK(p2.size() == 27);
+}
+
+TEST_CASE("Test move cards from one pile to another") {
+    Deck d;
+    Pile p1(d.subdeck(0, 9));
+    Pile p2(d.subdeck(10, 19));
+    CHECK(p1.size() == 10);
+    CHECK(p2.size() == 10);
+    p1.move_cards(p2);
+    CHECK(p1.size() == 20);
+    CHECK(p2.size() == 0);
+}
