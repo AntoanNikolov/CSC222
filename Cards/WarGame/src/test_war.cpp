@@ -25,5 +25,5 @@ TEST_CASE("Test compare WarCards") {
     CHECK((wc4 > wc3) == true);
     CHECK((wc4 <= wc3) == false);
     CHECK((wc2 >= wc4) == false);
-    // CHECK((wc2 < wc3) == true);
+    CHECK((wc2 < wc3) == true);
 }
