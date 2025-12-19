@@ -262,3 +262,13 @@ bool WarCard::operator<=(const WarCard& c2) const
     if (rank <= c2.rank) return true;
     return false;
 }
+
+bool WarCard::operator>=(const WarCard& c2) const
+{
+    // Handle Jokers high
+    if (rank == JOKER && c2.rank != JOKER) return true;
+    if (c2.rank == JOKER && rank != JOKER) return false;
+    // Handle rest of ranks
+    if (rank >= c2.rank) return true;
+    return false;
+}
