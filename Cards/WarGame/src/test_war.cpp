@@ -12,3 +12,18 @@ TEST_CASE("Test create WarCards") {
     CHECK(wc2.to_string() == "Ace of Hearts");
     CHECK(wc3.to_string() == "Joker");
 }
+
+TEST_CASE("Test compare WarCards") {
+    WarCard wc1(DIAMONDS, JACK);
+    WarCard wc2(CLUBS, JACK);
+    WarCard wc3(HEARTS, ACE);
+    WarCard wc4;
+    WarCard wc5(CLUBS, TEN);
+    CHECK((wc1 == wc2) == true);
+    // CHECK((wc1 != wc2) == false);
+    CHECK((wc3 > wc2) == true);
+    CHECK((wc4 > wc3) == true);
+    // CHECK((wc4 <= wc3) == false);
+    // CHECK((wc2 >= wc4) == false);
+    // CHECK((wc2 < wc3) == true);
+}
