@@ -198,7 +198,7 @@ Deck Deck::merge(const Deck& d) const
         if (!(i < cards.size())) {
             result.cards[k] = d.cards[j++];
         }
-        else if (!(i < d.cards.size())) {
+        else if (!(j < d.cards.size())) {
             result.cards[k] = cards[i++];
         }
         else if (cards[i] > d.cards[j]) {
@@ -211,10 +211,10 @@ Deck Deck::merge(const Deck& d) const
     return result;
 }
 
-Deck Deck::merge_sort() const
+Deck Deck::merge_sort() const // this should work for now, but should be recursive
 {
     int mid = cards.size() / 2; // find middle
-    Deck lhalf = subdeck(0, mid); // create lower half
+    Deck lhalf = subdeck(0, mid - 1); // create lower half
     Deck uhalf = subdeck(mid, cards.size()-1); // create upper half
     
     lhalf.sort(); // sort lower half
