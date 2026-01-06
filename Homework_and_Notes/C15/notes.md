@@ -1,0 +1,1 @@
+- Inside add_card and other instance member functions, you can access instance variables without using the keyword this
