@@ -50,6 +50,11 @@ public:
         return theta;
     }
 
+    double abs()
+    {
+        return sqrt(real * real + imag * imag);
+    }
+
     Complex operator + (const Complex& c)
     {
         return Complex(real + c.real, imag + c.imag);
@@ -59,5 +64,5 @@ public:
     {
         return Complex(real - c.real, imag - c.imag);
     }
-
+    
 };

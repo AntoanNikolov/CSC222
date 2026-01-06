@@ -11,3 +11,8 @@ TEST_CASE("Tests can subtract complex numbers") {
     CHECK(c3.get_real() == 3.0);
     CHECK(c3.get_imag() == 3.0);
 }
+
+TEST_CASE("Tests can return the absolute value of a complex number") {
+    Complex c1(3.0, 4.0);
+    CHECK(c1.abs() == 5.0);
+}
