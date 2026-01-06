@@ -19,4 +19,44 @@ public:
         real = r; imag = i;
         polar = false;
     }
+
+    double Complex::get_real()
+    {
+        return real;
+    }
+
+    double Complex::get_imag()
+    {
+        return imag;
+    }
+
+    void Complex::calculate_polar()
+    {
+        mag = sqrt(real * real + imag * imag);
+        theta = atan(imag / real);
+        polar = true;
+    }
+
+    double Complex::get_mag()
+    {
+        if (polar == false) calculate_polar();
+        return mag;
+    }
+
+    double Complex::get_theta()
+    {
+        if (polar == false) calculate_polar();
+        return theta;
+    }
+
+    Complex Complex::operator + (const Complex& c)
+    {
+        return Complex(real + c.real, imag + c.imag);
+    }
+
+    Complex Complex::operator - (const Complex& c)
+    {
+        return Complex(c.real - real, c.imag - imag);
+    }
+
 };
