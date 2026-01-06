@@ -21,41 +21,41 @@ public:
         polar = false;
     }
 
-    double Complex::get_real()
+    double get_real()
     {
         return real;
     }
 
-    double Complex::get_imag()
+    double get_imag()
     {
         return imag;
     }
 
-    void Complex::calculate_polar()
+    void calculate_polar()
     {
         mag = sqrt(real * real + imag * imag);
         theta = atan(imag / real);
         polar = true;
     }
 
-    double Complex::get_mag()
+    double get_mag()
     {
         if (polar == false) calculate_polar();
         return mag;
     }
 
-    double Complex::get_theta()
+    double get_theta()
     {
         if (polar == false) calculate_polar();
         return theta;
     }
 
-    Complex Complex::operator + (const Complex& c)
+    Complex operator + (const Complex& c)
     {
         return Complex(real + c.real, imag + c.imag);
     }
 
-    Complex Complex::operator - (const Complex& c)
+    Complex operator - (const Complex& c)
     {
         return Complex(real - c.real, imag - c.imag);
     }
