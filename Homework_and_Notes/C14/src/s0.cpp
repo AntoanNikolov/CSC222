@@ -1,6 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <doctest.h>
 #include <string>
+#include <cmath>
 using namespace std;
 
 class Complex
@@ -56,7 +57,7 @@ public:
 
     Complex Complex::operator - (const Complex& c)
     {
-        return Complex(c.real - real, c.imag - imag);
+        return Complex(real - c.real, imag - c.imag);
     }
 
 };

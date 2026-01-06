@@ -16,7 +16,7 @@ build/test_exercises: build/test_exercises.o
 test_all: build/test_exercises
 	./build/test_exercises
 
-test: test_exercises
+test: test_all
 
 clean:
 	rm -rf build
